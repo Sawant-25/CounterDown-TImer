@@ -1,1 +1,1 @@
-# CounterDown-TImer
+"Developed a responsive, gradient-animated countdown timer using HTML, CSS (flexbox, animations), and JavaScript, enabling users to track deadlines, events, and schedules with dynamic UI adjustments for various screen sizes."
