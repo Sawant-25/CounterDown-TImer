@@ -1,0 +1,187 @@
+/* Page background with gradient animation */
+body {
+    /* background: linear-gradient(-45deg, #ffecd2, #fcb69f, #ff9a9e, #fad0c4); */
+    background: linear-gradient(-45deg, #d2ffe6, #d54d1f, #c79aff, #dfc728);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* 
+@keyframes is used to define how a CSS property changes over time during an animation.
+@keyframes name {
+    0% {  style at the start  }
+    50% {style at halfway  }
+    100% {  style at the end  }
+}
+It controls background-position.
+background-position: X Y;
+
+X → Horizontal position of the background image/gradient (percentage or pixels).
+
+Y → Vertical position.
+
+Example:
+
+0% 50% → horizontally at the start (left), vertically centered.
+
+100% 50% → horizontally at the far right, vertically centered.
+0% → Gradient is at left-center of the container.
+
+50% → Gradient moves to right-center.
+
+100% → Back to left-center.
+
+background: linear-gradient(270deg, #ff6ec4, #7873f5);
+background-size: 400% 400%;
+animation: gradientBG 10s ease infinite;
+background-size: 400% 400% makes the gradient much bigger than the element itself.
+
+The animation changes the background-position over time, giving the illusion that colors are moving across the element.
+
+At 0% → 50%, the gradient scrolls right.
+
+At 50% → 100%, it scrolls left again.
+*/
+
+/* Container styling */
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #444;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+}
+
+/* Date input row */
+.user-input {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.user-input label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.start-date, .end-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f4f4f4;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+/* You didn’t set a fixed width, so these boxes are auto-sized to their content.
+That means:
+When both boxes are in one row, each one’s width = just enough to fit its text + padding.
+
+When window shrinks and they wrap to separate rows, now each row has only one box —
+and since justify-content: center is active, the box appears bigger because it has more free horizontal breathing room and is centered alone.
+They’re not actually growing in text width,They only take as much width as needed.
+When wrapped into separate rows:Each row now has only one box in the middle, which makes them look bigger because the eye sees them with more surrounding empty space.
+*/
+
+/* Date picker inputs */
+input[type="datetime-local"] {
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+/* Button styling */
+#startBtn {
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#startBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 94, 98, 0.4);
+}
+
+/* Button center */
+.btn-div {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* Countdown display */
+#countdown {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;  
+    /* by writing above property we can adjust the div that displays time
+    as if window size becomes smaller it will shift the div to next row
+    it will not change the flex-direction to column.
+    by using this property also we can make our webpage responsive */
+}
+
+#countdown div {
+    padding: 15px 20px;
+    background: #ffe0ac;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#countdown span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d35400;
+}
+
+/* Progress bar */
+.progress-container {
+    background: #ddd;
+    height: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    background: linear-gradient(to right, #43cea2, #185a9d);
+    width: 0%;
+    height: 100%;
+    transition: width 1s ease-in-out;
+}
